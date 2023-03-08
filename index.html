@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<script type="text/javascript"
+  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<title>ReZero</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper"  style="width: 1200px; margin: 0 auto">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h2 align="center">ReZero: Region-wise Zone extraction for Speech Enhancement</h2>
+											<p><center>Anonymous Authors</center></p>
+										</header>
+										<h3>Abstract:</h3>
+										<p>
+											Region-wise speech enhancement (R-SE) has attracted increasing attention owing to the relaxed requirement for target speaker information (e.g., clean speaker enrollment or precise speaker direction/location)
+											and the number of speakers. However, existing R-SE models typically make use of fixed or pre-defined angular or distance queries, while lacking the flexibility to dynamically adjust them per needed.
+											Towards more general R-SE with alterable region types and scopes, this work proposes <b>Re</b>gion-wise <b>Z</b>one <b>e</b>xt<b>r</b>acti<b>o</b>n (<b>ReZero</b>), a unified R-SE framework,
+											to extract and dereverberate all the speech signals within the query region from the mixture. We further propose a multi-channel extension of the band-split RNN (BSRNN) model to enhance the overall performance. 
+											During evaluation, the azimuth, elevation and distance range of the query zone can be dynamically selected to obtain different enhancement results as needed. 
+											Experimental results demonstrate the feasibility and potential of the proposed ReZero model for general R-SE. 	
+										</p>
+
+										<div align="center">
+										<img src="images/ReZero.png" style="background-repeat:no-repeat; background-size:contain" width="80%" alt=""  />
+										</div>
+
+										
+									</div>
+									
+								</section>
+
+
+		<!-- Section -->
+			<section id="demo">
+				<header class="major">
+					<h2>Demo on synthetic data</h2>
+				</header>
+				<div class="content">
+					<article>
+						<p>
+							<br>
+							ReZero can be defined in any microphone configurations or applications,
+							and is capable of handling alterable region types and scopes.
+							<br>
+							Here we consider a typical smart phone based voice communication scenario,
+							where the microphones are located compactly within a smart-phone-size box.
+							<br>
+							The figure below shows:
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> The geometry and spacings of the adopted 3-element microphone array;
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> A top view of different query regions performed on the same mixture;
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Angular-window-based zone extraction: all the potential cases of the number
+							of targets (0, 1, or 2) within the zone are covered;
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b> Closest talk extraction.<br>
+							It is observed that ReZero can produce different enhancement
+							results when alternating the query region types and scopes to meet
+							different requirements in versatile environments.
+						</p>
+					</article>
+				</div>
+
+				<div class="inner">
+					<article>
+						<div align="center">
+						<img src="images/3mic_dyn_queries.png" style="background-repeat:no-repeat; background-size:contain" width="100%" alt=""  />
+						</div>
+					</article>
+				</div>
+				<div class="content">
+					<article>
+						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
+						<table>
+							<thead>
+								<tr align="center">
+									<th><center><h3>Query&nbsp;index</h3></center></th>
+									<th><center><h3>Query&nbsp;region</h3></center></th>
+									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixture&nbsp;(ref.&nbsp;channel)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
+									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center></th>
+									<th><center><h3>ReZero&nbsp;output</h3></center></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>1</center></td>
+									<td>θ ∈ [50°,100°]</td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/mixture.wav"></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query1/target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query1/rezero.wav" ></audio></td>
+								</tr>
+
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>2</center></td>
+									<td><center>θ ∈ [65°,140°]</center></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/mixture.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query2/target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query2/rezero.wav" ></audio></td>
+								</tr>
+
+
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>3</center></td>
+									<td><center>θ ∈ [-10°,-75°]</center></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/mixture.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query3/target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query3/rezero.wav" ></audio></td>
+								</tr>
+
+
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>4</center></td>
+									<td><center>closest talk</center></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/mixture.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query4/target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query4/rezero.wav" ></audio></td>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<!--<ul class="actions">
+							<li><a href="#" class="button">More</a></li>
+						</ul>-->
+					</article>
+				</div>
+			</section>
+
+							
+					
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
