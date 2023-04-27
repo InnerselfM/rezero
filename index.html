@@ -48,10 +48,10 @@
 								</section>
 
 
-		<!-- Section -->
+			<!-- Section -->
 			<section id="demo">
 				<header class="major">
-					<h2>Demo on synthetic data</h2>
+					<h3>Demo on synthetic data (3-mic, mono output) </h3>
 				</header>
 				<div class="content">
 					<article>
@@ -157,8 +157,171 @@
 				</div>
 			</section>
 
-							
-					
+			<!-- Section -->
+			<section id="demo_2mic">
+				<header class="major">
+					<h3>Demo on synthetic data (2-mic, stereo output) </h3>
+				</header>
+				<div class="content">
+					<article>
+						<p>
+							<br>
+							We apply ReZero in a stereo scenario with preserved spatial cues.
+							A pair of earphones is preferred when listening to the stereo audios.
+							<br>
+							The report/paper which will elaborate on the implementation of this configuration (stereo in & stereo output) is ongoing.
+
+							<br>
+							The figure below shows:
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> The geometry and spacings of the dual-mic array;
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> A top view of different query regions performed on the same mixture;
+							</p>
+					</article>
+				</div>
+
+				<div class="inner">
+					<article>
+						<div align="center">
+						<img src="images/2mic.png" style="background-repeat:no-repeat; background-size:contain" width="50%" alt=""  />
+						</div>
+					</article>
+				</div>
+				<div class="content">
+					<article>
+						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
+						<table>
+							<thead>
+								<tr align="center">
+									<th><center><h3>Query&nbsp;index</h3></center></th>
+									<th><center><h3>Query&nbsp;region</h3></center></th>
+									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixture&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
+									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center></th>
+									<th><center><h3>ReZero&nbsp;output (stereo)</h3></center></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>1</center></td>
+									<td>θ ∈ [70, 110°]</td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/2mic_mixture.wav"></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query1/2mic_target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query1/2mic_rezero.wav" ></audio></td>
+								</tr>
+
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>2</center></td>
+									<td><center>θ ∈ [-50°,-120°]</center></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/2mic_mixture.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query2/2mic_target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query2/2mic_rezero.wav" ></audio></td>
+								</tr>
+
+
+								<tr style="border-top:1px solid black" align="center">
+									<td><center>3</center></td>
+									<td><center>θ ∈ [-15°,15°]</center></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/2mic_mixture.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query3/2mic_target.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query3/2mic_rezero.wav" ></audio></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+						<!--<ul class="actions">
+							<li><a href="#" class="button">More</a></li>
+						</ul>-->
+					</article>
+				</div>
+			</section>
+
+			<!-- Section -->
+			<section id="real_2mic">
+				<header class="major">
+					<h3>Demo on real-recorded data (2-mic, stereo output) </h3>
+				</header>
+				<div class="content">
+					<article>
+						<p>
+							<br>
+							The ReZero model trained on synthetic data is evaluated on real-recorded stereo data.
+							The microphone spacing between two recording sensors is 14cm for the presented demo.
+							The evaluation is also conducted on 2-mic recordings with 10.5cm and 7cm spacings.
+							<br>
+							The model is causal.
+							<br>
+							The figure below illustrates the conversation scene in a conference room (about 10 x 6 x 4 m^3).
+							A conference table is placed at the center of the room with the dual-mic put on the table.
+							Two male speakers sit by the table at 90° and 0° relative to the microphone array, respectively.
+							The distance-to-array is about 1.5 meters.
+							<br>
+
+						</p>
+					</article>
+				</div>
+
+				<div class="inner">
+					<article>
+						<div align="center">
+						<img src="images/2mic_real.png" style="background-repeat:no-repeat; background-size:contain" width="60%" alt=""  />
+						</div>
+					</article>
+				</div>
+				<div class="content">
+					<article>
+						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
+						<table>
+							<thead>
+								<tr align="center">
+									<th><center><h3>Time&nbsp;Stamp</h3></center></th>
+<!--									<th><center><h3>Query&nbsp;region</h3></center></th>-->
+									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recording&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
+									<th><center><h3>Query&nbsp;[45, 100°]</h3></center></th>
+									<th><center><h3>Query&nbsp;[-30, 30°]</h3></center></th>
+									<th><center><h3>Query&nbsp;[-90, -30°]</h3></center></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-top:1px solid black" align="center">
+									<td>[9.0-38.0]</td>
+<!--									<td><center>1</center></td>-->
+<!--									<td>θ ∈ [45, 100°]</td>-->
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/mixture/2mic_real_mixture%5B9.0%5D.wav"></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query1/2mic_real_%5B9.0%5D.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query2/2mic_real_%5B9.0%5D.wav" ></audio></td>
+									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
+										<source src="audio/query3/2mic_real_%5B9.0%5D.wav" ></audio></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<!--<ul class="actions">
+							<li><a href="#" class="button">More</a></li>
+						</ul>-->
+					</article>
+				</div>
+			</section>
+
+			<section id="stay">
+				<header class="major">
+					<h3>Stay tuned! Something new is coming :) </h3>
+				</header>
+			</section>
 
 			</div>
 
