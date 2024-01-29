@@ -69,9 +69,9 @@
 
 							</section>
 
-							<section id="real_demo">
+							<section id="real_demo_conf">
 								<header class="major">
-									<h2>Real-recorded data</h2>
+									<h2>Real-recorded data in conference room</h2>
 								</header>
 								<p></p>
 								<div class="features">
@@ -451,7 +451,162 @@
 							
 							</section>
 
+							<section id="real_demo_phone">
+								<header class="major">
+									<h2>Real-recorded data with smart phone</h2>
+								</header>
+								<p></p>
+								<div class="features">
+									<article>
+										<div class="content">
+											<h4>Data Recording</h4>
+										<p></p>
+										The figure below gives an application scenario of smart-phone communication.
+										Two male speakers were located at (90°, 0.5m) and (270°, 1.5m) relative to the smart phone, respectively.
+										A female speaker was located (240°, ?m) relative to the smart phone.
+										<p></p>
+										</div>
+									</article>
+									<article>
+										<div class="content">
+										<h4>Model — A-ReZero & C-ReZero </h4>
+											Both the azimuth-range-based ReZero (A-ReZero) and conical ReZero (C-ReZero) models were
+											trained on synthetic data and evaluated on real-recorded stereo data.
+										<br>
+											The dual microphones are located at the top and bottom of the smart phone, respectively,
+											with <i>unknown</i> spacing.
+										</div></article>
+								</div>
 
+								<div class="content">
+										<div class="content">
+											<table class="demo" style="width:90%; text-align:center; margin:auto">
+									<thead>
+										<tr>
+											<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recording&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+											<th>Angular Query&nbsp;{ [75, 105°] }</th>
+											<th>Conical Query&nbsp;{ [75, 105°], 1.0m }</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr style="border-top:1px solid black">
+											<td><img height="150" width="300" src="images/phone-demo.png" alt="S3_m1" />
+											</td>
+											<td><img height="150" width="300" src="images/phone-aq.png" alt="S3_q11" />
+											</td>
+											<td><img height="150" width="300" src="images/phone-cq.png" alt="S3_q12" />
+											</td>
+										</tr>
+
+										<tr style="border-top:1px solid black">
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-s-demo/mixture.wav"></audio>
+											<br>
+												<img height="150" width="300" src="audio/real-s-demo/spec_mixture.png" alt="S3_m2" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-s-demo/aq.wav" ></audio>
+											<br>
+												<img height="150" width="300" src="audio/real-s-demo/spec_aq.png" alt="S3_q21" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-s-demo/cq.wav" ></audio>
+											<br>
+												<img height="150" width="300" src="audio/real-s-demo/spec_cq.png" alt="S3_q22" />
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								</div>
+								</div>
+							</section>
+
+							<section id="real_demo_car">
+								<header class="major">
+									<h2>Real-recorded data in vehicle</h2>
+								</header>
+								<p></p>
+								<div class="features">
+									<article>
+										<div class="content">
+											<h4>Data Recording</h4>
+										<p></p>
+										The data is recorded in a driving 4-seat car, as shown in the figure below.
+										<br>
+										Two microphones are symmetrically located near the car navigation between the main driver and co-driver.
+											Another two microphones are symmetrically distributed by the side of two rear seats.
+										Compared to the small microphone array we used in the paper as well as presented in other demos,
+										the spacings between microphones used in car are relatively large (~1m).
+										<p></p>
+										</div>
+									</article>
+									<article>
+										<div class="content">
+										<h4>ReZero in car </h4>
+											The region shape in car is not defined in the paper, i.e., rectangular-box-like.
+											In our implementation, we sample the vertexes and the center of the box to calculate
+											corresponding spatial features.
+											<br>
+											Data simulation can be quite different for in-car scenario, including RIRs,
+											noise, echo, speaker arrangements, etc. We have addressed these changes under
+											the ReZero framework.
+											<br>
+											The output target of the model is the separate speech signals of four different regions.
+											The model used here is fully causal.
+										</div></article>
+								</div>
+
+								<div class="content">
+										<div class="content">
+											<table class="demo" style="width:90%; text-align:center; margin:auto">
+									<thead>
+										<tr>
+											<th></th>
+											<th>Session: main driver + rear2 + loud echo</th>
+											<th>Session: very low SNR with strong wind noise</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr style="border-top:1px solid black">
+											<td><b>Recording (ref. ch.)</b></td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-car-demo/mixture1.wav"></audio>
+											<br>
+												<img width="200" height="100" src="audio/real-car-demo/mixture1.png" alt="S3_m2" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-car-demo/mixture2.wav" ></audio>
+											<br>
+												<img width="200" height="100" src="audio/real-car-demo/mixture2.png" alt="S3_q21" />
+											</td>
+										</tr>
+										<tr style="border-top:1px solid black">
+											<td><b>ReZero output</b> <br>
+											<img width="150" src="audio/real-car-demo/car.png" alt="S3_m2" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-car-demo/1_out1.wav"></audio>
+												<audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-car-demo/1_out2.wav"></audio>
+											<br>
+												<img width="200" height="100" src="audio/real-car-demo/spec1.png" alt="S3_m2" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+												<source src="audio/real-car-demo/2_out_01.wav" ></audio>
+												<br><br><br>
+												<img width="200" height="100" src="audio/real-car-demo/spec2.png" alt="S3_q21" />
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								</div>
+
+							</div>
+							</section>
+							
 							<section id="demo_ae">
 									<header class="major">
 										<h2>2D Angular R-SE</h2>
@@ -788,7 +943,13 @@
 									<ul>
 										<li><a href="#banner">Abstract</a></li>
 										<li><a href="#problem">R-SE</a></li>
-										<li><a href="#real_demo">Demos on real data</a></li>
+										<li><span class="opener">Demos on real data</span>
+											<ul>
+												<li><a href="#real_demo_conf">Conference</a></li>
+												<li><a href="#real_demo_phone">Smart phone</a></li>
+												<li><a href="#real_demo_car">In-car</a></li>
+											</ul>
+										</li>
 										<li>
 											<span class="opener">Demos on simulated data</span>
 											<ul>
