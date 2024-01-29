@@ -360,6 +360,95 @@
 									</tbody>
 								</table>
 							</div>
+							<div class="inner">
+								<p></p>
+								<header class="major" id="target_type">
+									<h3>Different target audio types</h3>
+								</header>
+								<p></p>
+								<p>
+									To examine the generalization capability of the proposed framework to deal with different target audio types,
+									i.e., not limited to a particular audio type such as speech signal,
+									we simply alternated the target audio type to the <b>instrumental music</b> (without vocal).
+									In this case, both speech signals and common noises (e.g., gaussian noise, sound events) are considered as the interferences
+									that need to be removed.
+
+								<br>
+									<b>Session 5</b>: The recording scene is the same as Session 3 illustrated above.
+									A computer as well as a male speaker is placed at about -30° (same as 30° for linear array) and play instrumental music,
+									The female singer is located at about 90° while the other male singer is located at about 180° (same as 0° for linear array).
+									<br>
+									<b>Note</b>: Here we adopt two <i>small causal</i> BSRNN models to separately extract the instrumental music and speech/vocal.
+									For the task of music source separation, larger BSRNN models (20x+ complexity), higher sample rate (44.1kHz)
+									and finer band split scheme are preferred to produce more promising results.
+<!--								<ul><li><b>BSRNN-M</b>: R=8, H=48, P=16, bs1 scheme</li>-->
+<!--							<li><b>BSRNN-XXS</b>: R=6, H=24, P=16, bs2 scheme (the spectrogram is splitted into 5×200 Hz, 6×500 Hz, followed by 4×1k Hz subbands)</li>-->
+<!--							<li><b>BSRNN-XXXS</b>: R=4, H=16, P=12, bs2 scheme</li>-->
+<!--							</ul>-->
+								</p>
+								<table class="demo">
+									<thead>
+									<tr>
+										<th>Time&nbsp;Stamp</th>
+										<th>Recording</th>
+										<th>Music [15°, 45°]</th>
+										<th>Speech / Vocal [-15°, 100°]</th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>[10.0-33.0]</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_mix_10-33.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mix_10-33.png" width="100%" />
+											</td>
+											<td>
+												<audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_mquery%5B15-45%5D_10-33.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mquery%5B15-45%5D_10-33.png" width="100%" />
+											</td>
+											<td>
+												<audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_squery%5B45-100%5D_10-33.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_squery%5B45-100%5D_10-33.png" width="100%" />
+											</td>
+
+										</tr>
+										<tr>
+											<td>[32.0-42.0]</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_mix_32-42.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mix_32-42.png" width="100%" />
+											</td>
+											<td>failed (too low SNR) <br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mquery%5B15-45%5D_32-42.png" width="100%" />
+											</td>
+											<td>
+												<audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_squery%5B45-100%5D_32-42.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_squery%5B45-100%5D_32-42.png" width="100%" />
+											</td>
+										</tr>
+										<tr>
+											<td>[108.0-118.0]</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_mix_108-118.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mix_108-118.png" width="100%" />
+											</td>
+											<td><audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_mquery%5B15-45%5D_108-118.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_mquery%5B15-45%5D_108-118.png" width="100%" />
+											</td>
+											<td>
+												<audio controls class="audio-player" preload="metadata" style="width:100%;">
+											<source src="audio/real-at-demo/session5_squery%5B-15-100%5D_108-118.wav"></audio><br>
+												<img height="100" width="200" src="audio/real-at-demo/session5_squery%5B-15-100%5D_108-118.png" width="100%" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
 							</section>
 
 
